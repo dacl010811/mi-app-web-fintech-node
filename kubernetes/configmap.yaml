@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fintech-config
+  namespace: fintech-prod
+data:
+  # Configuración de la aplicación
+  NODE_ENV: production
+  PORT: "3000"
+  LOG_LEVEL: info
+  
+  # Configuración de MySQL (no sensible)
+  DB_HOST: mysql-service
+  DB_PORT: "3306"
+  DB_NAME: fintech_db
+  MYSQL_DATABASE: fintech_db
+  
+  # Configuración de inicialización de MySQL
+  MYSQL_ROOT_HOST: "%"
+  MYSQL_CHARACTER_SET_SERVER: utf8mb4
+  MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+  
