@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fintech-app
+  namespace: fintech-prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fintech-app
+  template:
+    metadata:
+      labels:
+        app: fintech-app
+    spec:
+      containers:
+      - name: fintech-app
+        image: dacl010821/mi-app-web-fintech-node:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
