@@ -11,7 +11,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: gp2  # Para AWS EKS
+  #storageClassName: gp2  # Para AWS EKS
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -161,9 +161,6 @@ spec:
           periodSeconds: 5
           timeoutSeconds: 3
       volumes:
-      - name: mysql-storage
-        persistentVolumeClaim:
-          claimName: mysql-pvc
       - name: mysql-init
         configMap:
           name: mysql-init-scripts
